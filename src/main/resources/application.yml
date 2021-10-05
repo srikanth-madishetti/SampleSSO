@@ -1,0 +1,38 @@
+# Spring Boot configuration
+spring:
+  profiles:
+    active: google
+  security:
+    oauth2:
+      client:
+        provider:
+          azure-ad :
+          authorizationUri: https://login.microsoftonline.com/common/oauth2/v2.0/authorize
+          tokenUri : https://login.microsoftonline.com/common/oauth2/v2.0/token
+          jwk-set-uri: https://login.microsoftonline.com/common/discovery/v2.0/keys
+        registration:
+          azure-client:
+            provider: azure-ad
+            client-id: e823075d-6e9a-45f0-a885-4ec918aec12e
+            client-secret: 51ec3a96-ae89-47b1-a054-3278e6f0c248
+            authorization-grant-type: authorization_code
+            redirect-uri: https://localhost:8080/hello
+            scope: openid,profile
+            
+# Spring Security configuration
+# Server configuration
+
+  #security:
+   # oauth2:
+    #  client:
+     #   registration:
+      #   google:
+       #   clientId: 292032096939-r1v62p3rifre49t9h4hsg1k2i9d25g9b.apps.googleusercontent.com
+        #  clientSecret: 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
+         # scope:
+          # - email
+           #- profile
+          
+server:
+  port: 8080
+
